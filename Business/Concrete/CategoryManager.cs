@@ -19,14 +19,14 @@ namespace Business.Concrete
         }
         public void CategoryAddBL(Category p)
         {
-            if(p.CategoryName==" " || p.CategoryName.Length<=3||p.CategoryDescription==" " || p.CategoryName.Length >= 51)
-            {
-                //hatamesajı
-            }
-            else
-            {
+            //if(p.CategoryName==" " || p.CategoryName.Length<=3||p.CategoryDescription==" " || p.CategoryName.Length >= 51)
+            //{
+            //    //hatamesajı
+            //}
+            //else
+            //{
                 repo.Insert(p);
-            }
+           // }
         }
     }
 }

@@ -1,0 +1,29 @@
+﻿@*kullanacaklarımı implemente ettim*@
+@using Entities.Concrete
+@model List<Category>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Adı</th>
+        <th>Durum</th>
+        </tr>
+    @foreach(var index in Model)
+    {
+        <tr>
+            <td>@index.CategoryID</td>
+            <td>@index.CategoryName</td>
+            <td>@index.CategoryStatus</td>
+        </tr>
+
+    }
+</table>
+<br />
+<a href="/Category/AddCategory" class="btn btn-info">Yeni Kategori</a>
