@@ -6,27 +6,38 @@ using System.Threading.Tasks;
 using DataAccess.Concrete;
 using Entities.Concrete;
 using DataAccess.Concrete.Repositories;
+using Business.Abstract;
+using DataAccess.Abstract;
 
 namespace Business.Concrete
 {
-    public class CategoryManager
+    public class CategoryManager : ICategoryService
     {
+        //interface üzerindeki tanımlanan metotların kalıtsallığı al
+
+        ICategoryDal _categoryDal;
+
+        public CategoryManager(ICategoryDal categoryDal)
+        {
+            _categoryDal = categoryDal;
+        }
+
+        public void CategoryAddBL(Category category)
+        {
+            _categoryDal.Insert(category);
+        }
+
+        //Generic repos new ile türetmeden içindekilere ulaştık bağımlılığı yok ettik Dependency Injection.
+        public List<Category> fetchCategoryList()
+        {
+            return _categoryDal.List();
+        }
+        
+
+
+
+
         //DBCC CHECKIDENT (‘tablo adı’,RESEED,0)
-        GenericRepository<Category> repo = new GenericRepository<Category>();
-        public List<Category> GetAll()
-        {
-            return repo.List();
-        }
-        public void CategoryAddBL(Category p)
-        {
-            //if(p.CategoryName==" " || p.CategoryName.Length<=3||p.CategoryDescription==" " || p.CategoryName.Length >= 51)
-            //{
-            //    //hatamesajı
-            //}
-            //else
-            //{
-                repo.Insert(p);
-           // }
-        }
+
     }
 }

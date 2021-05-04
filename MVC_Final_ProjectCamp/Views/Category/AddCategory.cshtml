@@ -1,8 +1,31 @@
-﻿
+﻿@model Entities.Concrete.Category
 @{
     Layout = null;
 }
-
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 <h1>Kategori Ekleme Sayfası</h1>
 <br />
-<h6>Hoş Geldiniz</h6>
+@*Başlangıç formu ekleme güncelleme yardımcısı HANGİ ACTİON,HANGİ CONTROLLER,FORM NE YAPACAK*@
+@using (Html.BeginForm("AddCategory","Category",FormMethod.Post))
+{
+<div class="form-group">
+    @Html.Label("Kategori Adı")
+    @Html.TextBoxFor(x => x.CategoryName)
+    @Html.ValidationMessageFor(x => x.CategoryName)
+    <br /><br />
+    @Html.Label("Kategori Açıklaması")
+    @Html.TextBoxFor(x => x.CategoryDescription)
+    @Html.ValidationMessageFor(x => x.CategoryDescription)
+    <br /><br />
+    <button>Kaydet</button>
+
+</div>
+}
+@*butona tıkladığım zaman çalışacak alan CategoryName hangi sütuna kaydedeceğini bildir.*@
+@*<form class="form-group" method="post">
+    <input type="text" name="CategoryName" placeholder="Kategori Adı" class="form-control" />
+    <br />
+    <input type="text" name="CategoryDescription" placeholder="Kategori Açıklama" class="form-control" />
+    <br />
+    <button class="btn btn-success">Ekle</button>
+</form>*@
