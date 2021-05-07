@@ -1,0 +1,33 @@
+﻿@*kullanacaklarımı implemente ettim*@
+@using Entities.Concrete
+@model List<Category>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@*<!DOCTYPE html>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />*@
+<br />
+<table class="table table-striped">
+    <tr>
+        <th>ID</th>
+        <th>Adı</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+        <th>Başlıklar</th>
+    </tr>
+    @foreach (var index in Model)
+    {
+        <tr>
+            <td>@index.CategoryID</td>
+            <td>@index.CategoryName</td>
+            <td><a href="#" class="btn btn-danger">Sil</a></td>
+            <td><a href="#" class="btn btn-warning">Güncelle</a></td>
+            <td><a href="#" class="btn btn-primary">Başlıklar</a></td>
+
+        </tr>
+
+    }
+</table>
+<a href="/AdminCategory/AddCategory" class="btn btn-info">Yeni Kategori</a>
+
