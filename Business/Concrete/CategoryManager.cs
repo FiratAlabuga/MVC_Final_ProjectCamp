@@ -27,12 +27,29 @@ namespace Business.Concrete
             _categoryDal.Insert(category);
         }
 
+        public void CategoryDelete(Category category)
+        {
+            //irepoda tanımlanan delete idye karşılık geleni silecek.
+            _categoryDal.Delete(category);
+        }
+
+        public void CategoryUpdate(Category category)
+        {
+            _categoryDal.Update(category);
+        }
+
         //Generic repos new ile türetmeden içindekilere ulaştık bağımlılığı yok ettik Dependency Injection.
         public List<Category> fetchCategoryList()
         {
             return _categoryDal.List();
         }
-        
+
+        public Category GetByID(int id)
+        {
+            //gelen id'ye göre silme işlemi
+            return _categoryDal.GetById(x=>x.CategoryID==id);
+        }
+
 
 
 

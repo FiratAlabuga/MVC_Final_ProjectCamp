@@ -11,6 +11,10 @@ namespace Business.Abstract
     {
         //Önce methodu interface tarafında tanımla sonra Manager'da içini doldur.
         List<Category> fetchCategoryList();
+        Category GetByID(int id);
+        //category sınıfından bir category nesnesinn değeri/değerleri tutulur.
+        void CategoryDelete(Category category);
         void CategoryAddBL(Category category);
+        void CategoryUpdate(Category category);
     }
 }

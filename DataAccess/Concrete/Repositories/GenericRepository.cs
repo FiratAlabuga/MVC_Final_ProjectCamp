@@ -23,6 +23,12 @@ namespace DataAccess.Concrete.Repositories
             c.SaveChanges();
         }
 
+        public T GetById(Expression<Func<T, bool>> filter)
+        {
+            //bir dizide veya listede sadece bir tane değer döndermek için kullanılan efLINQ methodudur.
+            return _object.SingleOrDefault(filter);
+        }
+
         public void Insert(T p)
         {
             _object.Add(p);

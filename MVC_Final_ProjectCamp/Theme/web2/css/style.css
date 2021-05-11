@@ -1,0 +1,101 @@
+
+
+.list_of_members {
+	margin:2em 0;
+	padding:10px;
+}
+.visitors {
+	width: 23.5%;
+	margin-right:0%;
+	background:#3f4e62;
+	padding:1.8em 2em;
+	float:left;
+	cursor: pointer;
+}
+.sales {
+	width:23.5%;
+	margin-right:2%;
+	background:#16a085;
+	padding:1.8em 1.5em;
+	float:left;
+	  cursor: pointer;
+}
+.orders {
+	width:23.5%;
+	margin-right:2%;
+	background:#418bca;
+	padding:1.8em 1.5em;
+	float:left;
+	  cursor: pointer;
+}
+.new-users {
+	width:23.5%;
+	background:#e05d6f;
+	padding:1.8em 01.5em;
+	float:left;
+	margin-right:2%;
+	  cursor: pointer;
+}
+.visitors h3,.sales h3,.new-users h3,.orders h3 {
+	color:#fff;
+	text-align:center;
+	font-size:2.6em;
+	font-weight:500;
+	letter-spacing:1px;
+}
+.visitors p,.sales p,.new-users p,.orders p {
+	float:left;
+	color:#fff;
+	font-size:1.3em;
+	font-weight:300;
+}
+.visitors a,.sales a,.users a {
+	float:right;
+}
+.total-sales {
+	margin: 3em 0;
+}
+
+
+
+@media screen and (max-width: 1280px) {
+	.total-content {
+		margin: 1.5em 1em;
+	}
+	.visitors p, .sales p, .new-users p, .orders p {
+		font-size: 1.1em;
+	}
+
+}
+@media screen and (max-width: 1024px) {
+
+	.total-content {
+		margin: 2em 1em;
+	}
+	.visitors h4, .sales h4, .users h4 {
+		font-size: 1.4em;
+	}
+	.visitors h3, .sales h3, .users h3 {
+		font-size: 1.75em;
+	}
+	.visitors p, .sales p, .new-users p, .orders p {
+		font-size: 1.05em;
+		margin-top:0;
+	}
+	.list_of_members, .total-world, .calenders {
+		margin: 2em 0;
+	}
+	.sales, .new-users, .orders {
+		padding: 1.5em 1em;
+	}
+	.visitors {
+		padding: 1.5em 1em;
+	}
+	.visitors h3, .sales h3, .new-users h3, .orders h3 {
+		font-size: 2.2em;	
+	}
+
+	.total-sales {
+		margin: 2em 0;
+	}
+}

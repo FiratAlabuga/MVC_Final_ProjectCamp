@@ -13,6 +13,7 @@ namespace DataAccess.Abstract
         //Type Name();
         List<T> List();
         void Insert(T p);
+        T GetById(Expression<Func<T, bool>> filter);//id için getir
         void Delete(T p);
         void Update(T p);
         List<T> List(Expression<Func<T, bool>> filtered);//istediğim ifadedeki değerleri getir.
