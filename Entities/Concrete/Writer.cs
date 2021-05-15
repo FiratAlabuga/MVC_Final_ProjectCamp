@@ -17,10 +17,12 @@ namespace Entities.Concrete
         public string WriterSurname { get; set; }
         [StringLength(100)]
         public string WriterImage { get; set; }
-        [StringLength(50)]
+        [StringLength(150)]
         public string WriterMail { get; set; }
-        [StringLength(20)]
+        [StringLength(150)]
         public string WriterPass { get; set; }
+        [StringLength(150)]
+        public string WriterAbout { get; set; }
         public ICollection<Heading> Headings { get; set; }//yazarlar başlıkları oluşturur
         public ICollection<Content> Contents { get; set; }
 
