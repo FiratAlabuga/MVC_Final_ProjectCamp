@@ -17,6 +17,7 @@ namespace Entities.Concrete
         public string UserMail { get; set; }
         [StringLength(500)]
         public string Subject { get; set; }
+        public DateTime ContactDateTime { get; set; }
         [StringLength(1000)]
         public string Message { get; set; }
 

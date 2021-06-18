@@ -1,0 +1,186 @@
+﻿@using Entities.Concrete
+@model List<Heading>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@{ string color = "";
+    string checkStatus = "";
+    string statusColor = "";
+    string stringStatus = "";
+    string stringclass="";
+    }
+<!DOCTYPE html>
+<html>
+
+<body class="hold-transition sidebar-mini">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Başlıklar</h1>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- Main content -->
+    <section class="content">
+        <!-- Default box -->
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Başlık İşlemleri</h3>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body p-0">
+                <table class="table table-striped projects">
+                    <thead>
+                        <tr>
+                            <th style="width: 1%">
+                                #
+                            </th>
+                            <th style="width: 20%">
+                                Başlık Adı
+                            </th>
+                            <th style="width: 15%">
+                                Oluşturan Yazar
+                            </th>
+                            <th style="width: 10%">
+                                Durum
+                            </th>
+                            <th style="width: 8%" class="text-center">
+                                Kategori
+                            </th>
+                            <th style="width: 20%">
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var index in Model)
+                        {
+                            if (index.Category.CategoryName == "Film")
+                            {
+                                color = "badge badge-success";
+                            }
+                            if (index.Category.CategoryName == "Teknoloji")
+                            {
+                                color = "badge badge-warning";
+                            }
+                            if (index.Category.CategoryName == "Eğitim")
+                            {
+                                color = "badge badge-danger";
+                            }
+                            if (index.Category.CategoryName == "Dizi")
+                            {
+                                color = "badge badge-secondary";
+                            }
+                        <tr>
+                            <td>
+                                @index.HeadID
+                            </td>
+                            <td>
+                                <a>
+                                    @index.HeadName
+                                </a>
+                                <br />
+                                <small>
+                                   @(((DateTime)index.HeadDate).ToString("dd-MMM-yyyy"))
+                                </small>
+                            </td>
+                            <td>
+                                <ul class="list-inline">
+                                    <li class="list-inline-item">
+                                        <img alt="Avatar" class="table-avatar" src="/Theme/AdminLTE-3.0.4/dist/img/avatar.png">
+                                    </li>
+                                </ul>
+                            </td>
+                            <td>
+                                @switch (index.HeadStatus)
+                                {
+                                    case true:
+                                        statusColor = "badge bg-success";
+                                        stringStatus = "Başlık Aktif";
+                                        break;
+                                    case false:
+                                        statusColor = "badge bg-danger";
+                                        stringStatus = "Başlık Pasif";
+                                        break;
+                                }
+                                <span class="@statusColor">@stringStatus</span>
+                            </td>
+                            <td class="project-state">
+                                <span class="@color">@index.Category.CategoryName</span>
+                            </td>
+                            <td class="project-actions text-right">
+                                <a class="btn btn-primary btn-sm" href="/Content/ContentByHeading/@index.HeadID">
+                                    <i class="fas fa-folder">
+                                    </i>
+                                    İçerikler
+                                </a>
+                                <a class="btn btn-info btn-sm" href="/Heading/EditHeading/@index.HeadID">
+                                    <i class="fas fa-pencil-alt">
+                                    </i>
+                                    Düzenle
+                                </a>
+                                <a class="btn btn-danger btn-sm" href="/Heading/ChangeStatusHeading/@index.HeadID">
+                                    <i class="@stringclass">
+                                    </i>
+                                    @if (index.HeadStatus == true)
+                                    {
+                                        checkStatus = "Pasif Yap";
+                                        stringclass = "fas fa-level-down-alt";
+                                    }
+                                    else
+                                    {
+                                        checkStatus = "Aktif Yap";
+                                        stringclass = "fas fa-level-up-alt";
+                                    }
+                                    @checkStatus
+                                </a>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </section>
+</body>
+</html>
+<a href="/Heading/AddHeading" class="btn btn-primary">Yeni Başlık</a>
+
+
+
+
+@*<br />
+    <table class="table table-striped">
+        <tr>
+            <th>ID</th>
+            <th>Başlık Adı</th>
+            <th>Başlık Oluşturulma Tarihi</th>
+            <th>Başlık Kategorisi</th>
+            <th>Başlığı Oluşturan Yazar</th>
+        </tr>
+        @foreach (var index in Model)
+        {
+            <tr>
+                <td>@index.HeadID</td>
+                <td>@index.HeadName</td>
+                <td>@index.HeadDate</td>
+                <td>@index.Category.CategoryName</td>
+                <td>@index.Writer.WriterName</td>
+
+            </tr>
+
+        }
+    </table>
+    <a href="/Heading/AddHeading/" class="btn btn-info">Yeni Başlık</a>*@

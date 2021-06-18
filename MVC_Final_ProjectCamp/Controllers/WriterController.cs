@@ -15,6 +15,7 @@ namespace MVC_Final_ProjectCamp.Controllers
     public class WriterController : Controller
     {
         WriterManager wm = new WriterManager(new EFWriterDal());
+        WriterValidator writerValidator = new WriterValidator();
         // GET: Writer
         public ActionResult Index()
         {
@@ -29,11 +30,34 @@ namespace MVC_Final_ProjectCamp.Controllers
         [HttpPost]
         public ActionResult AddWriter(Writer p)
         {
-            WriterValidator writerValidator = new WriterValidator();
             ValidationResult result = writerValidator.Validate(p);
             if (result.IsValid)
             {
                 wm.WriterAddBL(p);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                foreach (var item in result.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+            }
+            return View();
+        }
+        [HttpGet]
+        public ActionResult Update_Edit_Writer(int id)
+        {
+            var writerValue = wm.GetByID(id);
+            return View(writerValue);
+        }
+        [HttpPost]
+        public ActionResult Update_Edit_Writer(Writer w)
+        {
+            ValidationResult result = writerValidator.Validate(w);
+            if (result.IsValid)
+            {
+                wm.WriterUpdate(w);
                 return RedirectToAction("Index");
             }
             else

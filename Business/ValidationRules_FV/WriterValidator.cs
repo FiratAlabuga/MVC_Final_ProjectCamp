@@ -19,6 +19,8 @@ namespace Business.ValidationRules_FV
             RuleFor(x => x.WriterName).MinimumLength(2).WithMessage("En az 3 karakter olmalıdır");
             RuleFor(x => x.WriterName).MaximumLength(20).WithMessage("En fazla 20 karakter olmalıdır");
             RuleFor(x => x.WriterSurname).MaximumLength(50).WithMessage("En fazla 50 karakter olmalıdır");
+            RuleFor(x => x.WriterJobTitle).MaximumLength(20).WithMessage("En fazla 20 karakter olmalıdır");
+            RuleFor(x => x.WriterSurname).NotEmpty().WithMessage("Yazar Mesleği Boş Geçilemez.");
         }
     }
 }
