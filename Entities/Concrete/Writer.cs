@@ -19,8 +19,8 @@ namespace Entities.Concrete
         public string WriterImage { get; set; }
         [StringLength(150)]
         public string WriterMail { get; set; }
-        [StringLength(150)]
-        public string WriterPass { get; set; }
+        public byte[] WriterPasswordHash { get; set; }
+        public byte[] WriterPasswordSalt { get; set; }
         [StringLength(150)]
         public string WriterAbout { get; set; }
         [StringLength(50)]

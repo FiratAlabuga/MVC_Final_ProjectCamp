@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IAboutDal.cs" />
+    <Compile Include="Abstract\IAdminDal.cs" />
     <Compile Include="Abstract\ICategoryDal.cs" />
     <Compile Include="Abstract\IContentDal.cs" />
     <Compile Include="Abstract\IContactDal.cs" />
@@ -59,16 +60,19 @@
     <Compile Include="Abstract\IImageFileDal.cs" />
     <Compile Include="Abstract\IMessageDal.cs" />
     <Compile Include="Abstract\IRepository.cs" />
+    <Compile Include="Abstract\ITalentDal.cs" />
     <Compile Include="Abstract\IWriterDal.cs" />
     <Compile Include="Concrete\Context.cs" />
     <Compile Include="Concrete\Repositories\GenericRepository.cs" />
     <Compile Include="EntityFramework\EFAboutDal.cs" />
+    <Compile Include="EntityFramework\EFAdminDal.cs" />
     <Compile Include="EntityFramework\EFCategoryDal.cs" />
     <Compile Include="EntityFramework\EFContactDal.cs" />
     <Compile Include="EntityFramework\EFContentDal.cs" />
     <Compile Include="EntityFramework\EFHeadingDal.cs" />
     <Compile Include="EntityFramework\EFImageFileDal.cs" />
     <Compile Include="EntityFramework\EFMessageDal.cs" />
+    <Compile Include="EntityFramework\EFTalentDal.cs" />
     <Compile Include="EntityFramework\EFWriterDal.cs" />
     <Compile Include="Migrations\202105151355394_mig_for_writer.cs" />
     <Compile Include="Migrations\202105151355394_mig_for_writer.designer.cs">
@@ -109,6 +113,26 @@
     <Compile Include="Migrations\202106181604572_mig_addImageFile.cs" />
     <Compile Include="Migrations\202106181604572_mig_addImageFile.designer.cs">
       <DependentUpon>202106181604572_mig_addImageFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106191126283_mig_admins_table.cs" />
+    <Compile Include="Migrations\202106191126283_mig_admins_table.designer.cs">
+      <DependentUpon>202106191126283_mig_admins_table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106192136175_mig_adminHashUpdate.cs" />
+    <Compile Include="Migrations\202106192136175_mig_adminHashUpdate.designer.cs">
+      <DependentUpon>202106192136175_mig_adminHashUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106241942188_mig_writer_hash.cs" />
+    <Compile Include="Migrations\202106241942188_mig_writer_hash.designer.cs">
+      <DependentUpon>202106241942188_mig_writer_hash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106302006102_mig_last_changes.cs" />
+    <Compile Include="Migrations\202106302006102_mig_last_changes.designer.cs">
+      <DependentUpon>202106302006102_mig_last_changes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202106302010327_mig_for_talent.cs" />
+    <Compile Include="Migrations\202106302010327_mig_for_talent.designer.cs">
+      <DependentUpon>202106302010327_mig_for_talent.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -156,6 +180,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106181604572_mig_addImageFile.resx">
       <DependentUpon>202106181604572_mig_addImageFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106191126283_mig_admins_table.resx">
+      <DependentUpon>202106191126283_mig_admins_table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106192136175_mig_adminHashUpdate.resx">
+      <DependentUpon>202106192136175_mig_adminHashUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106241942188_mig_writer_hash.resx">
+      <DependentUpon>202106241942188_mig_writer_hash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106302006102_mig_last_changes.resx">
+      <DependentUpon>202106302006102_mig_last_changes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106302010327_mig_for_talent.resx">
+      <DependentUpon>202106302010327_mig_for_talent.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

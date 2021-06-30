@@ -42,7 +42,10 @@ namespace Business.Concrete
         {
             return _contentDal.List(x => x.HeadID == id);
         }
-
+        public List<Content> GetListByWriter(int id)
+        {
+            return _contentDal.List(c => c.WriterID == id);
+        }
         public Content GetByID(int id)
         {
             throw new NotImplementedException();

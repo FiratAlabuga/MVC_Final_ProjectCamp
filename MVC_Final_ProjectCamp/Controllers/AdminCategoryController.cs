@@ -16,6 +16,7 @@ namespace MVC_Final_ProjectCamp.Controllers
         //EFCategoryDal Farklı çalışma alanlarından çalışabilmek için little touches .. :d
         CategoryManager cm = new CategoryManager(new EFCategoryDal());
         // GET: AdminCategory
+        [Authorize(Roles="A")]//Authenticate olmadan görülme olmaz.
         public ActionResult Index()
         {
             var categoryValues = cm.fetchCategoryList();

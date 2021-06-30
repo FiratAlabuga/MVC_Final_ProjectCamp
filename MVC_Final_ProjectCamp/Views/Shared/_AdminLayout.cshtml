@@ -60,7 +60,9 @@ to get the desired effect
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
-                             with font-awesome or any other icon font library menu-open-->
+         with font-awesome or any other icon font library menu-open-->
+                        @if(User.IsInRole("B"))//role sahip olan görür.
+                        {
                         <li class="nav-item has-treeview">
                             <a href="/AdminCategory/Index/" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -69,6 +71,8 @@ to get the desired effect
                                 </p>
                             </a>
                         </li>
+                        }
+
                         <li class="nav-item">
                             <a href="/Heading/Index/" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
@@ -127,14 +131,6 @@ to get the desired effect
                                 <i class="nav-icon fas fa-edit"></i>
                                 <p>
                                     İletişim & Mesajlar
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-table"></i>
-                                <p>
-                                    Yazılar
                                 </p>
                             </a>
                         </li>

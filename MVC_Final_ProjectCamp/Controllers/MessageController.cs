@@ -60,5 +60,43 @@ namespace MVC_Final_ProjectCamp.Controllers
             var result = mem.GetByID(id);
             return View(result);
         }
+        public ActionResult Draft()
+        {
+            var result = mem.IsDraft();
+            return View(result);
+        }
+
+        public ActionResult GetDraftDetails(int id)
+        {
+            var result = mem.GetByID(id);
+            return View(result);
+        }
+
+        public ActionResult IsRead(int id)
+        {
+            var result = mem.GetByID(id);
+            if (result.IsRead == false)
+            {
+                result.IsRead = true;
+            }
+            else
+            {
+                result.IsRead = false;
+            }
+            mem.MessageUpdate(result);
+            return RedirectToAction("Inbox");
+        }
+
+        public ActionResult MessageRead()
+        {
+            var result = mem.fetchMessageListInbox().Where(m => m.IsRead == true).ToList();
+            return View(result);
+        }
+
+        public ActionResult MessageUnRead()
+        {
+            var result = mem.GetAllRead();
+            return View(result);
+        }
     }
 }

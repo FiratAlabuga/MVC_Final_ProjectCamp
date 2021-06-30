@@ -9,6 +9,7 @@
     string statusColor = "";
     string stringStatus = "";
     string stringclass="";
+    string buttonStatusColor = "";
     }
 <!DOCTYPE html>
 <html>
@@ -81,6 +82,18 @@
                             {
                                 color = "badge badge-secondary";
                             }
+                            if (index.Category.CategoryName == "Tiyatro/Sahne Oyunları")
+                            {
+                                color = "badge bg-gradient-olive";
+                            }
+                            if (index.Category.CategoryName == "Spor")
+                            {
+                                color = "badge bg-orange";
+                            }
+                            if (index.Category.CategoryName == "Kitap")
+                            {
+                                color = "badge badge-info";
+                            }
                         <tr>
                             <td>
                                 @index.HeadID
@@ -107,10 +120,14 @@
                                     case true:
                                         statusColor = "badge bg-success";
                                         stringStatus = "Başlık Aktif";
+                                        buttonStatusColor = "btn btn-danger";
+                                        stringclass = "fas fa-level-down-alt";
                                         break;
                                     case false:
                                         statusColor = "badge bg-danger";
                                         stringStatus = "Başlık Pasif";
+                                        buttonStatusColor = "btn btn-success";
+                                        stringclass = "fas fa-level-up-alt";
                                         break;
                                 }
                                 <span class="@statusColor">@stringStatus</span>
@@ -129,18 +146,16 @@
                                     </i>
                                     Düzenle
                                 </a>
-                                <a class="btn btn-danger btn-sm" href="/Heading/ChangeStatusHeading/@index.HeadID">
+                                <a id="chnButton" class="@buttonStatusColor" href="/Heading/ChangeStatusHeading/@index.HeadID">
                                     <i class="@stringclass">
                                     </i>
                                     @if (index.HeadStatus == true)
                                     {
-                                        checkStatus = "Pasif Yap";
-                                        stringclass = "fas fa-level-down-alt";
+                                        checkStatus = "Pasif";
                                     }
                                     else
                                     {
-                                        checkStatus = "Aktif Yap";
-                                        stringclass = "fas fa-level-up-alt";
+                                        checkStatus = "Aktif";
                                     }
                                     @checkStatus
                                 </a>
@@ -154,6 +169,11 @@
         </div>
         <!-- /.card -->
     </section>
+    @*<script>
+        $('#chnButton').on("click", function () {
+            $(this).removeClass
+        });
+    </script>*@
 </body>
 </html>
 <a href="/Heading/AddHeading" class="btn btn-primary">Yeni Başlık</a>

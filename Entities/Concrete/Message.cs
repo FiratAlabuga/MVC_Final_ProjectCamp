@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace Entities.Concrete
 {
@@ -17,7 +18,11 @@ namespace Entities.Concrete
         public string ReceiverMail { get; set; }
         [StringLength(100)]
         public string MessageSubject { get; set; }
+        [AllowHtml]
         public string MessageContent { get; set; }
         public DateTime MessageDate { get; set; }
+        public bool IsDraft { get; set; }
+        public bool Trash { get; set; }
+        public bool IsRead { get; set; }
     }
 }

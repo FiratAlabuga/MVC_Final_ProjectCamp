@@ -69,6 +69,20 @@ namespace MVC_Final_ProjectCamp.Controllers
             hm.HeadingDelete(headValue);
             return RedirectToAction("Index");
         }
+        public ActionResult DeleteHeadingDeactive(int id)
+        {
+            var deactiveHeading = hm.GetByID(id);
+            if (deactiveHeading.HeadStatus==true)
+            {
+                deactiveHeading.HeadStatus = false;
+            }
+            else
+            {
+                deactiveHeading.HeadStatus = true;
+            }
+            hm.HeadingDelete(deactiveHeading);
+            return RedirectToAction("Index");
+        }
 
     }
 }

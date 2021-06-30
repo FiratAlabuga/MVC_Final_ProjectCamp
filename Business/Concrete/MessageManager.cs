@@ -28,6 +28,15 @@ namespace Business.Concrete
             return _messageDal.List(x => x.SenderMail == "admin@admin.com");
         }
 
+        public List<Message> fetchMessageListInbox(string receiver)
+        {
+            return _messageDal.List(m => m.ReceiverMail == receiver);
+        }
+        public List<Message> fetchMessageListSendbox(string sender)
+        {
+            return _messageDal.List(x => x.SenderMail == "admin@admin.com");
+        }
+
         public Message GetByID(int id)
         {
             return _messageDal.GetById(x => x.MessageId == id);
@@ -40,12 +49,20 @@ namespace Business.Concrete
 
         public void MessageDelete(Message message)
         {
-            throw new NotImplementedException();
+            _messageDal.Delete(message);
         }
 
         public void MessageUpdate(Message message)
         {
-            throw new NotImplementedException();
+            _messageDal.Update(message);
+        }
+        public List<Message> IsDraft()
+        {
+            return _messageDal.List(m => m.IsDraft == true);
+        }
+        public List<Message> GetAllRead()
+        {
+            return _messageDal.List(m => m.ReceiverMail == "admin@admin.com").Where(m => m.IsRead == false).ToList();
         }
     }
 }

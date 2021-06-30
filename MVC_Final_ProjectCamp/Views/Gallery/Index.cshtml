@@ -85,10 +85,9 @@
         $(function () {
             $(document).on('click', '[data-toggle="lightbox"]', function (event) {
                 event.preventDefault();
-                alert("Merhaba");
-                //$(this).ekkoLightbox({
-                //    alwaysShowClose: true
-                //});
+                $(this).ekkoLightbox({
+                    alwaysShowClose: true
+                });
             });
             $('.filter-container').filterizr({ gutterPixels: 3 });
             $('.btn[data-filter]').on('click', function () {
