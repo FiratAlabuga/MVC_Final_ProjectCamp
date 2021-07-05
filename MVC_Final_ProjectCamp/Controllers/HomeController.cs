@@ -26,5 +26,10 @@ namespace MVC_Final_ProjectCamp.Controllers
 
             return View();
         }
+        [AllowAnonymous]
+        public ActionResult Homepage()
+        {
+            return View();
+        }
     }
 }

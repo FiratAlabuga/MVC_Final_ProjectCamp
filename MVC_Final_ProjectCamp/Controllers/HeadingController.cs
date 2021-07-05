@@ -21,6 +21,12 @@ namespace MVC_Final_ProjectCamp.Controllers
             var headingValues = hm.fetchHeadingList();
             return View(headingValues);
         }
+
+        public ActionResult HeadingReports()
+        {
+            var headingValues = hm.fetchHeadingList();
+            return View(headingValues);
+        }
         [HttpGet]
         public ActionResult AddHeading()
         {
