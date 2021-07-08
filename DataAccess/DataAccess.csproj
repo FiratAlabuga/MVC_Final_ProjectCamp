@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="Abstract\IAboutDal.cs" />
     <Compile Include="Abstract\IAdminDal.cs" />
+    <Compile Include="Abstract\IAdRoleDal.cs" />
     <Compile Include="Abstract\ICategoryDal.cs" />
     <Compile Include="Abstract\IContentDal.cs" />
     <Compile Include="Abstract\IContactDal.cs" />
@@ -66,6 +67,7 @@
     <Compile Include="Concrete\Repositories\GenericRepository.cs" />
     <Compile Include="EntityFramework\EFAboutDal.cs" />
     <Compile Include="EntityFramework\EFAdminDal.cs" />
+    <Compile Include="EntityFramework\EFAdRoleDal.cs" />
     <Compile Include="EntityFramework\EFCategoryDal.cs" />
     <Compile Include="EntityFramework\EFContactDal.cs" />
     <Compile Include="EntityFramework\EFContentDal.cs" />
@@ -134,6 +136,10 @@
     <Compile Include="Migrations\202106302010327_mig_for_talent.designer.cs">
       <DependentUpon>202106302010327_mig_for_talent.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107081516431_mig_roleStatus_edit.cs" />
+    <Compile Include="Migrations\202107081516431_mig_roleStatus_edit.designer.cs">
+      <DependentUpon>202107081516431_mig_roleStatus_edit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -195,6 +201,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106302010327_mig_for_talent.resx">
       <DependentUpon>202106302010327_mig_for_talent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107081516431_mig_roleStatus_edit.resx">
+      <DependentUpon>202107081516431_mig_roleStatus_edit.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

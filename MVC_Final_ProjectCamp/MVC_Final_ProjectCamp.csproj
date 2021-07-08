@@ -153,6 +153,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="Controllers\ScheduleController.cs" />
     <Compile Include="Controllers\StatisticController.cs" />
     <Compile Include="Controllers\TalentController.cs" />
     <Compile Include="Controllers\TestController.cs" />
@@ -165,6 +166,7 @@
     </Compile>
     <Compile Include="Models\CaptchaResult.cs" />
     <Compile Include="Models\CategoryChart.cs" />
+    <Compile Include="Models\Schedule.cs" />
     <Compile Include="Models\TalentChart.cs" />
     <Compile Include="Models\WriterChart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -2665,10 +2667,11 @@
     <Content Include="Views\Heading\HeadingReports.cshtml" />
     <Content Include="Views\Authorization\Index.cshtml" />
     <Content Include="Views\Authorization\AddAdmin.cshtml" />
+    <Content Include="Views\Authorization\UpdateAdmin.cshtml" />
+    <Content Include="Views\Schedule\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Authorizaiton\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
